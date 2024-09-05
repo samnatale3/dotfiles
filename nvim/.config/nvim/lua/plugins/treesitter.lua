@@ -31,11 +31,13 @@ function Plugin.config()
 			"typescript",
 			"vim",
 			"svelte",
-			-- "yaml", This is currently borked see: https://github.com/ikatyang/tree-sitter-yaml/issues/53
+			"vimdoc",
+			"luadoc",
 		},
 		sync_install = false,
 		highlight = {
 			enable = true,
+			disable = "help",
 		},
 		indent = {
 			enable = true,
