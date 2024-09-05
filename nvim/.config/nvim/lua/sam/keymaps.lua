@@ -1,6 +1,9 @@
 -- Normal Mode --
 vim.keymap.set("n", "<space>", "<nop>") -- Disable Space bar since it'll be used as the leader key
 
+-- redo
+vim.keymap.set("n", "U","<C-r>")
+
 vim.keymap.set("n", "<C-l>", vim.cmd.wincmd("l"))
 vim.keymap.set("n", "<C-h>", vim.cmd.wincmd("h"))
 
@@ -12,10 +15,7 @@ vim.keymap.set("n", "<leader>q", "<cmd>q<cr>", { silent = false })
 -- Save and Quit with leader key
 vim.keymap.set("n", "<leader>z", "<cmd>wq<cr>", { silent = false })
 
-vim.keymap.set("n", "<C-j>", "<C-d>", { silent = false })
-vim.keymap.set("n", "<C-k>", "<C-u>", { silent = false })
-
-vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<cr>", { silent = false })
+vim.keymap.set("n", "<leader>e", ":Oil --float<cr>", { silent = false })
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { silent = false })
 
 vim.keymap.set("n", "<C-l>", ":bnext<CR>", { silent = false })
@@ -23,8 +23,20 @@ vim.keymap.set("n", "<C-h>", ":bprevious<CR>", { silent = false })
 vim.keymap.set("n", "<C-c>", ":bwipeout<CR>", { silent = false })
 
 -- Center buffer while navigating
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-k>", "<C-u>zz")
+vim.keymap.set("n", "<C-j>", "<C-d>zz")
+
+-- center buffer while navigating search results
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "n", "Nzzzv")
+
+-- paste without replacing paste with what you are highlighted over
+vim.keymap.set("x", "<leader>p", "\"_dP")
+
+vim.keymap.set("n", "<leader>y", "\"+y")
+vim.keymap.set("v", "<leader>y", "\"+y")
+vim.keymap.set("n", "<leader>Y", "\"+Y")
+
 vim.keymap.set("n", "{", "{zz")
 vim.keymap.set("n", "}", "}zz")
 vim.keymap.set("n", "N", "Nzz")
@@ -89,13 +101,13 @@ vim.keymap.set("n", "<leader>d", function()
 end)
 
 -- Place all dignostics into a qflist
-vim.keymap.set("n", "<leader>ld", vim.diagnostic.setqflist, { desc = "Quickfix [L]ist [D]iagnostics" })
+vim.keymap.set("n", "<leader>ls", vim.diagnostic.setqflist, { desc = "Quickfix [L]ist [D]iagnostics" })
 
 -- Open the qflist
-vim.keymap.set("n", "<leader>do", ":copen<cr>zz")
+vim.keymap.set("n", "<leader>lo", ":copen<cr>zz")
 
 -- Close the qflist
-vim.keymap.set("n", "<leader>dc", ":cclose<cr>zz")
+vim.keymap.set("n", "<leader>lc", ":cclose<cr>zz")
 
 -- Telescope keybinds
 vim.keymap.set("n", "<leader>sb", ":Telescope buffers<cr>")

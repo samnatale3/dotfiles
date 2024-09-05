@@ -18,7 +18,7 @@ Plugin.dependencies = {
 
 -- Custom function to filter specific TSServer diagnostics
 local function tsserver_diagnostics_filter(_, result, ctx, config)
-	local messages_to_filter = {
+	  local messages_to_filter = {
 		"This may be converted to an async function.",
 		"'_Assertion' is declared but never used.",
 		"'__Assertion' is declared but never used.",

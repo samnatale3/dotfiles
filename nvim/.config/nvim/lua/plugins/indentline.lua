@@ -6,7 +6,7 @@ Plugin.main = "ibl"
 function Plugin.config()
 	require("ibl").setup({
 		scope = {
-			enabled = true,
+			enabled = false,
 			show_start = false,
 			show_end = false,
 		},
